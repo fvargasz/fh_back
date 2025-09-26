@@ -29,7 +29,7 @@ class FlightController extends Controller
             return response()->json(['error' => 'Departure date field is required'], 400);
         }
 
-        if ($request->tripType === 'round-trip') {
+        if ($request->tripType === 'round_trip') {
                 
             if (!$request->has('returnDate') || empty($request->returnDate)) {
                 return response()->json(['error' => 'Return date field is required for round trip'], 400);

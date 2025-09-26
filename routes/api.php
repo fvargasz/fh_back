@@ -28,6 +28,6 @@ Route::middleware('auth:sanctum')->prefix('flight')->group(function () {
 
 Route::middleware('auth:sanctum')->prefix('trip')->group(function () {
     Route::post('/create', [TripController::class, 'createTrip']);
-    Route::get('/getActiveUserTrips', [TripController::class, 'getUserTrips']);
+    Route::post('/getActiveUserTrips', [TripController::class, 'getUserTrips']);
 });
 
