@@ -6,7 +6,6 @@ use App\Http\Controllers\FlightController;
 use App\Http\Controllers\AirportController;
 use App\Http\Controllers\TripController;
 
-// Example endpoint
 Route::prefix('users')->group(function () {
     Route::post('/create', [UserController::class, 'create']);
     Route::post('/login', [UserController::class, 'login']);
@@ -21,7 +20,6 @@ Route::prefix('airports')->group(function () {
     Route::post('/all', [AirportController::class, 'getAll']);
 });
 
-// Authenticated routes can be added here
 Route::middleware('auth:sanctum')->prefix('users')->group(function () {
     Route::post('/getActiveUser', [UserController::class, 'getActiveUser']);
 });

@@ -10,7 +10,6 @@ use Carbon\Carbon;
 
 class FlightController extends Controller
 {
-    // Controller methods will go here
     function getFlights(Request $request) {
 
         if (!$request->has('departure_airport_id') || empty($request->departure_airport_id)) {
@@ -51,7 +50,6 @@ class FlightController extends Controller
             $validTrips = [];
             foreach ($outboundFlights as $outbound) {
                 foreach ($returnFlights as $return) {
-                    // Start adding to the array
                     if ($outboundDate == $returnDate && $return->departure_time->greaterThan($outbound->arrival_time)) {
                         $validTrips[] = [
                             'outbound' => $outbound,

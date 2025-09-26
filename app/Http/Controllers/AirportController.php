@@ -7,11 +7,6 @@ use App\Models\Airport;
 
 class AirportController extends Controller
 {
-    /**
-     * Get all airports.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function getAll()
     {
         $airports = Airport::all();
