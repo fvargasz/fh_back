@@ -2,10 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FlightController;
+use App\Http\Controllers\AirportController;
 
 // Example endpoint
 Route::prefix('users')->group(function () {
-    Route::get('/', [UserController::class, 'index']);
     Route::post('/create', [UserController::class, 'create']);
-    Route::post('/', [UserController::class, 'store']);
+    Route::post('/login', [UserController::class, 'login']);
+    
 });
+
+Route::prefix('airports')->group(function () {
+    Route::post('/all', [AirportController::class, 'getAll']);
+});
+
+// Authenticated routes can be added here
+Route::middleware('auth:sanctum')->prefix('users')->group(function () {
+    Route::post('/getActiveUser', [UserController::class, 'getActiveUser']);
+});
+
+Route::middleware('auth:sanctum')->prefix('flight')->group(function () {
+    Route::post('/flights', [FlightController::class, 'getFlights']);
+});
+

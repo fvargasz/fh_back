@@ -17,6 +17,8 @@ class Airport extends Model
         'longitude',
         'timezone',
     ];
+
+    protected $hidden = ['created_at', 'updated_at'];
     
     protected $casts = [
         'latitude' => 'decimal:8',

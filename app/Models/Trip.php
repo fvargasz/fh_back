@@ -16,15 +16,6 @@ class Trip extends Model {
         'destination_airport_id'
     ];
     
-    // ✅ Add date validation
-    public static function boot() {
-        parent::boot();
-        
-        static::creating(function ($trip) {
-            $trip->validateTripDates();
-        });
-    }
-    
     public function validateTripDates() {
         $earliestSegment = $this->segments()->orderBy('flight_date')->first();
        
