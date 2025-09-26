@@ -49,19 +49,20 @@ class Trip extends Model {
                 }
                 break;
                
-            case 'open_jaw':
-                $segments = $this->segments()->orderBy('segment_order')->get();
-                if ($segments->count() < 2) {
-                    throw new Exception('Open-jaw trip must have at least 2 segments');
-                }
-                break;
+            // for future use
+            // case 'open_jaw':
+            //     $segments = $this->segments()->orderBy('segment_order')->get();
+            //     if ($segments->count() < 2) {
+            //         throw new Exception('Open-jaw trip must have at least 2 segments');
+            //     }
+            //     break;
                
-            case 'multi_city':
-                $segmentCount = $this->segments()->count();
-                if ($segmentCount < 2 || $segmentCount > 5) {
-                    throw new Exception('Multi-city trip must have 2-5 segments');
-                }
-                break;
+            // case 'multi_city':
+            //     $segmentCount = $this->segments()->count();
+            //     if ($segmentCount < 2 || $segmentCount > 5) {
+            //         throw new Exception('Multi-city trip must have 2-5 segments');
+            //     }
+            //     break;
         }
     }
     
